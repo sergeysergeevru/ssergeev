@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <title>Getting Started</title>
+    <script src="https://unpkg.com/lodash@4.16.6"></script>
+</head>
+<body>
+<canvas id="gitGraph"></canvas>
+<canvas id="canvas"></canvas>
+<script src="./dist/main.js"></script>
+<script>
+    function graph(){
+        var gitgraph = new GitGraph({
+            template: "metro",
+            orientation: "vertical-reverse",
+            mode: "extended"
+        });
+        var master = gitgraph.branch("master");
+        gitgraph.commit();
+        var education = gitgraph.branch("education");
+        education.commit("2012 ITMO University.");
+        master.commit("2015");
+        var volt = gitgraph.branch({
+            parentBranch: master,
+            name: 'volt',
+        });
+        var itmoRnd = gitgraph.branch({
+            parentBranch: master,
+            name: 'itmo-rnd',
+        });
+        itmoRnd.commit("2016 Engineer in R&D project")
+        volt.commit("2015 220 volt: Web-developer");
+        education.merge(master, "2016 Bachelor degree");
+        education.commit("2016 ITMO University");
+        education.merge(master, "2018 Master degree");
+        itmoRnd.merge(master, "2018 - end Engineer in R&D project");
+        volt.merge(master, "2018 - end 220 volt: Web-developer")
+
+        var bigdata = gitgraph.branch({
+            parentBranch: master,
+            name: "big-data"
+        });
+
+        var postgraduate = gitgraph.branch({
+            parentBranch: master,
+            name: "postgraduate"
+        });
+        postgraduate.commit("Phd student");
+        bigdata.commit("2018 PHP/Go developer in Big Data Technologies");
+        master.commit("2019");
+
+
+
+//         var myfeature = develop.branch("myfeature"); // New branch from develop
+//         myfeature.commit();
+//         develop.commit();
+//         develop.merge(master);
+//
+// // Well, if you need to go deeper…
+//
+//         var hotfix = gitgraph.branch({
+//             parentBranch: develop,
+//             name: "hotfix",
+//             column: 2             // which column index it should be displayed in
+//         });
+//         master.commit("This commit is mine"); // Add a commit on master branch
+    };
+    // graph();
+    var cat = new Image();
+    cat.src = "sprites-cat.png";
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds){
+                break;
+            }
+        }
+    }
+    function anim(num) {
+        num = num % 8;
+        let xN = num % 4;
+        let xOffset = -512 * xN;
+        let yOffset = -256 * Math.floor(num / 4);
+
+        var canvas = document.getElementById('canvas');
+        canvas.width = 512;
+        canvas.height = 256;
+        var ctx = canvas.getContext('2d');
+        // ctx.setWith(400);
+        ctx.drawImage(cat, xOffset, yOffset);
+        setTimeout(function () {
+            anim(num + 1);
+        }, 100)
+    }
+    anim(0);
+</script>
+</body>
+</html>
