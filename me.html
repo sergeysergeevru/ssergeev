@@ -9,37 +9,28 @@
           rel="stylesheet">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 </head>
-<body style="background: lightgrey">
-<div>
-    <div class="container">
+<body style="background: lightgrey" class="pt-3">
+<div id="app">
+    <div  class="container">
         <div class="row">
             <div class="col-sm-4">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm ">
                     <div class="mt-2">
                         <img style="width: 200px; height: 200px" class="mx-auto d-block img-thumbnail rounded-circle"
                              src="img/avatar.jpg">
                     </div>
                     <div class="text-center pt-2" style="font-family: 'Gotham Bold'; font-size: 20px;">
-                        Sergey Sergeev
+                        {{ profile.name }}
                     </div>
                     <div>
-                        <ul class="nav justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://vk.com/fellics"><img src="img/vk.svg"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="img/facebook.svg"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="img/linkedin.svg"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="img/instagram.svg"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="img/github-circle.svg"></a>
+                        <ul class="nav justify-content-center border-top">
+                            <li class="nav-item" v-for="link in profile.contacts.social">
+                                <a class="nav-link p-2" :href="link.href"><img :src="link.image"></a>
                             </li>
                         </ul>
+                    </div>
+                    <div>
+
                     </div>
                 </div>
             </div>
@@ -50,62 +41,53 @@
                             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Work experience</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Education</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Research</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <div class="media">
-                                <img style="max-width: 64px; max-height: 64px;" src="/img/bd-logo.svg" class="mr-3" alt="">
+                            <div class="media pt-2 pb-2" v-bind:class="{ 'border-bottom': index != profile.work.length - 1}" v-for="(item, index) in profile.work">
+                                <img style="max-width: 64px; max-height: 64px;" :src="item.image" class="mr-3" alt="">
                                 <div class="media-body">
-                                    <h5 class="mt-0">Big Data Technologies</h5>
-                                    PHP/GO Developer
+                                    <h5 class="mt-0">{{ item.name }}</h5>
+                                    {{ item.description }}
                                 </div>
+                                <span v-if="item.finish !== null" class="badge badge-secondary">{{ item.start }} - {{ item.finish }}</span>
+                                <span v-if="item.finish == null" class="badge badge-secondary">{{ item.start }}</span>
                             </div>
-                            <div class="media">
-                                <img style="max-width: 64px; max-height: 64px;" src="/img/itmo.jpg" class="mr-3" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="media pt-2 pb-2" v-for="(item, index) in profile.education" v-bind:class="{ 'border-bottom': index != profile.education.length - 1}" >
+                                <img style="max-width: 64px; max-height: 64px;" :src="item.image" class="mr-3" alt="">
                                 <div class="media-body">
-                                    <h5 class="mt-0">ITMO University</h5>
-                                    Engineer in R&D project: complex of design automation and prototyping of
-                                    electronic means. Duties: patent review, development of the application for
-                                    visualization and auto creating G Code program from 3D formats like STEP,
-                                    IGES, IDF for the CNC machine. Technologies: C++, OpenCascade,
-                                    WinForms.
+                                    <h5 class="mt-0">{{ item.name }}</h5>
+                                {{ item.text }}
                                 </div>
+                                <span class="badge badge-secondary">{{ item.start }} - {{ item.finish }}</span>
                             </div>
-                            <div class="media">
-                                <img style="max-width: 64px; max-height: 64px;" src="/img/220voltlogo.png" class="mr-3" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">220 volt</h5>
-                                    Developing web application http://www.mastercity.ru/ Technologies: PHP,
-                                    Silex, Symfony3, HTML, CSS, JavaScript, JQuery, MariaDB, MongoDB,
-                                    Redis, Memcached, LiveStreet.
-                                    http://www.220-volt.ru Creation of regression tests. Technologies: Java,
-                                    TestNG, Selenium WebDriver, Docker, GitlabCI, Yandex Allure, xvfb,
-                                    MySQL.
-                                    Supporting and developing of Yudin service for push notifications.
-                                    Technologies: Go, PostgreSQL, ReactJS, JS, BigQuery, RabbitMQ, Redis,
-                                    Memcached, docker (for local development).
-                                    Developing FIDO service for generation some marketing feeds (for yandex
-                                    market, google merchant and etc.) Techologies: Go, PostgreSQL, Vue, Vuex,
-                                    JS, JQuery, docker, redis.
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <div class="card" style="width: 18rem;" v-for="item in profile.research">
+                                <img :src="item.image" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.title }}</h5>
+                                    <p class="card-text">{{ item.description }}</p>
+                                    <a :href="item.link" class="btn btn-primary">Go to paper</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="app">
-
-    </div>
 </div>
+<!-- <footer class="container bg-light p-2 m-2">
+    © Sergey Sergeev 2019
+</footer> !-->
 <script src="dist/main.js"></script>
 </body>
 </html>

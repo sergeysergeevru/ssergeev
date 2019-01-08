@@ -1,0 +1,92 @@
+{
+  "name": "Sergey Sergeev",
+  "contacts": {
+    "social": [
+      {
+        "image": "img/vk.svg",
+        "href": "https://vk.com/fellics"
+      },
+      {
+        "image": "img/facebook.svg",
+        "href": "https://www.facebook.com/sergey.sergeev.ru"
+      },
+      {
+        "image": "img/linkedin.svg",
+        "href": "https://www.linkedin.com/in/sergey-sergeev-604b6112a/"
+      },
+      {
+        "image": "img/instagram.svg",
+        "href": "https://www.instagram.com/sergeysergeev.ru/"
+      },
+      {
+        "image": "img/github-circle.svg",
+        "href": "https://github.com/sergeysergeevru"
+      },
+      {
+        "image": "img/telegram.svg",
+        "href": "https://t.me/fellics"
+      }
+    ]
+  },
+  "work": [
+    {
+      "start": 2018,
+      "finish": null,
+      "image": "/img/bd-logo.svg",
+      "name": "Big Data Technology",
+      "description": "PHP/GO Developer "
+    },
+    {
+      "start": 2016,
+      "finish": 2018,
+      "image": "/img/itmo.jpg",
+      "name": "ITMO University",
+      "description": "Engineer in R&D project: complex of design automation and prototyping of electronic means. Duties: patent review, development of the application forvisualization and auto creating G Code program from 3D formats like STEP, IGES, IDF for the CNC machine. Technologies: C++, OpenCascade, WinForms."
+    },
+    {
+      "start": 2015,
+      "finish": 2018,
+      "image": "/img/220voltlogo.png",
+      "name": "220 volt",
+      "description": "Developing web application http://www.mastercity.ru/ Technologies: PHP, Silex, Symfony3, HTML, CSS, JavaScript, JQuery, MariaDB, MongoDB, Redis, Memcached, LiveStreet. http://www.220-volt.ru Creation of regression tests. Technologies: Java, TestNG, Selenium WebDriver, Docker, GitlabCI, Yandex Allure, xvfb, MySQL. Supporting and developing of Yudin service for push notifications. Technologies: Go, PostgreSQL, ReactJS, JS, BigQuery, RabbitMQ, Redis, Memcached, docker (for local development). Developing FIDO service for generation some marketing feeds (for yandex market, google merchant and etc.) Techologies: Go, PostgreSQL, Vue, Vuex, JS, JQuery, docker, redis."
+    }
+  ],
+  "education": [
+    {
+      "start": 2010,
+      "finish": 2012,
+      "image": "/img/lyceum_logo.svg",
+      "name": "Special education scientific center of Ural Federal University.",
+      "text": " Specialized class: mathematics and computer science."
+    },
+    {
+      "start": 2012,
+      "finish": 2016,
+      "image": "/img/itmo.jpg",
+      "name": "ITMO University",
+      "text": "Faculty of Information Security and Computer Technologies. Chair of Computer System Design and Security. Bachelor. Speciality: «Information security»."
+    },
+    {
+      "start": 2016,
+      "finish": 2018,
+      "image": "/img/itmo.jpg",
+      "name": "ITMO University",
+      "text": "Faculty of Information Security and Computer Technologies. Chair of Computer System Design and Security. Master. Speciality: «Information security»."
+    },
+    {
+      "start": 2018,
+      "finish": 2022,
+      "image": "/img/itmo.jpg",
+      "name": "ITMO University",
+      "text": "Faculty of Information Security and Computer Technologies. Postgraduate. Speciality: «Information security»."
+    }
+  ],
+  "research": [
+    {
+      "image": "/img/ntv-paper.jpg",
+      "title": "Analysis of camouflage cover spectral characteristics by imaging spectrometer",
+      "description": "Kouznetsov A.Yu., Sergeev S.S. Analysis of camouflage cover spectral characteristics by imaging spectrometer. Scientific andTechnical Journal of Information Technologies, Mechanics and Optics, 2016, vol. 16, no. 2, pp. 258–264. doi: 10.17586/2226-1494-2016-16-2-258-264",
+      "link": "/papers/tchvi-ndvi.pdf"
+    }
+  ]
+}
