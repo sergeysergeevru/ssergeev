@@ -30,8 +30,15 @@
   },
   "work": [
     {
-      "start": 2018,
+      "start": 2019,
       "finish": null,
+      "image": "/img/cursol.png",
+      "name": "Currency Solutions LTD",
+      "description": "Software developer"
+    },
+    {
+      "start": 2018,
+      "finish": 2019,
       "image": "/img/bd-logo.svg",
       "name": "Big Data Technology",
       "description": "PHP/GO Developer "
