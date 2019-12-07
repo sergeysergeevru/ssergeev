@@ -34,7 +34,7 @@
       "finish": null,
       "image": "/img/cursol.png",
       "name": "Currency Solutions LTD",
-      "description": "Software developer:<br>Developing new services and separation old version of monolithic architecture product into Go microservices and AWS lambda functions. Technologies: PHP7, Golang, MySQL, AWS Lambdas, Gitlab (server supporting)\n\nDevelopment processes improvements: migration from old stack Stash (old BitBucket version)+ Bamboo to Gitlab + Gitlab CI/CD what improved continues delivery processes and decreased time to market. "
+      "description": "Software developer:\nDeveloping new services and separation old version of monolithic architecture product into Go microservices and AWS lambda functions. Technologies: PHP7, Golang, MySQL, AWS Lambdas, Gitlab (server supporting)\n\nDevelopment processes improvements: migration from old stack Stash (old BitBucket version)+ Bamboo to Gitlab + Gitlab CI/CD what improved continues delivery processes and decreased time to market. "
     },
     {
       "start": 2018,
